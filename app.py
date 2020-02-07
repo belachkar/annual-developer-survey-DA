@@ -1,7 +1,7 @@
 from matplotlib import pyplot as plt
 
 # Turn on xkcd <https://xkcd.com/>_ sketch-style drawing mode.
-plt.xkcd()
+# plt.xkcd()
 
 ages_x = [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
 
