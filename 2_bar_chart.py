@@ -1,17 +1,14 @@
 from matplotlib import pyplot as plt
 import numpy as np
 
-# Turn on xkcd <https://xkcd.com/>_ sketch-style drawing mode.
-# plt.xkcd()
-
 # Select a style
 plt.style.use("fivethirtyeight")
 
-ages_x = [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
-x_indexes = np.arange(len(ages_x))
-print(x_indexes)
 bar_width = 0.25
+ages_x = [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
 
+# Getting a list of indexes, used to get the bars side by side
+x_indexes = np.arange(len(ages_x))
 
 # Median Python Developer Salaries by Age
 py_dev_y = [45372, 48876, 53850, 57287, 63016, 65998, 70003, 70000, 71496, 75370, 83640]
@@ -37,10 +34,14 @@ plt.ylabel("Median Salary (USD)")
 # Setting the grid
 plt.grid(True)
 
+# Setting the legends
 plt.legend()
 
+# Automatically adjust subplot parameters to give specified padding.
 plt.tight_layout()
 
-plt.savefig("img/bar.png")
+# Saving the file automatically
+plt.savefig("img/bar_chart.png")
 
+# Display a figure.
 plt.show()
