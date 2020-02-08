@@ -1,8 +1,5 @@
 from matplotlib import pyplot as plt
 
-# Turn on xkcd <https://xkcd.com/>_ sketch-style drawing mode.
-# plt.xkcd()
-
 ages_x = [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
 
 # Median Python Developer Salaries by Age
@@ -23,9 +20,6 @@ plt.title("Median Salary (USD) by Age")
 plt.xlabel("Ages")
 plt.ylabel("Median Salary (USD)")
 
-# Print available styles
-# print(plt.style.available)
-
 # Select a style
 plt.style.use("fivethirtyeight")
 
@@ -39,7 +33,7 @@ plt.legend()
 plt.tight_layout()
 
 # Saving the file automatically
-plt.savefig("img/plot.png")
+plt.savefig("img/plot_chart.png")
 
 # Display a figure.
 plt.show()
