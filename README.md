@@ -1,36 +1,21 @@
-# Annual Developer Survey - Data Analysis
+# Annual Developer Survey - Data Analysis  <!-- omit in toc -->
+
+## Table Of Contents <!-- omit in toc -->
+
+- [Dependecies](#dependecies)
+- [Plot chart](#plot-chart)
+- [Bar chart](#bar-chart)
+- [Useful codes](#useful-codes)
+  - [Printing available styles](#printing-available-styles)
+  - [Turning on XKCD effect for rendering an image](#turning-on-xkcd-effect-for-rendering-an-image)
+- [References](#references)
 
 ## Dependecies
 
-| Name       | Description                                                                                                                                                                                                                                            |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| matplotlib | A plotting library for the Python programming language and its numerical mathematics extension NumPy. It provides an object-oriented API for embedding plots into applications using general-purpose GUI toolkits like Tkinter, wxPython, Qt, or GTK+. |
-| NumPy      | A library for the Python programming language, adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.                                         |
-
-## Useful codes
-
-### Printing available styles
-
-```python
-from matplotlib import pyplot as plt
-
-print(plt.style.available)
-
-# Output:
-['bmh', 'classic', 'dark_background', 'fast', 'fivethirtyeight', 'ggplot', 'grayscale', 'seaborn-bright', 'seaborn-colorblind', 'seaborn-dark-palette', 'seaborn-dark', 'seaborn-darkgrid', 'seaborn-deep', 'seaborn-muted', 'seaborn-notebook', 'seaborn-paper', 'seaborn-pastel', 'seaborn-poster', 'seaborn-talk', 'seaborn-ticks', 'seaborn-white', 'seaborn-whitegrid', 'seaborn', 'Solarize_Light2', 'tableau-colorblind10', '_classic_test']
-```
-
-### Turning on XKCD effect for rendering an image
-
-Turning on xkcd <https://xkcd.com/> _sketch-style drawing mode_.
-
-```python
-from matplotlib import pyplot as plt
-
-plt.xkcd()
-```
-
-![xkcd_plot]
+| Name           | Description                                                                                                                                                                                                                                            |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **matplotlib** | A plotting library for the Python programming language and its numerical mathematics extension NumPy. It provides an object-oriented API for embedding plots into applications using general-purpose GUI toolkits like Tkinter, wxPython, Qt, or GTK+. |
+| **NumPy**      | A library for the Python programming language, adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.                                         |
 
 ## Plot chart
 
@@ -132,11 +117,39 @@ plt.show()
 
 ![bar-chart]
 
+## Useful codes
+
+### Printing available styles
+
+```python
+from matplotlib import pyplot as plt
+
+print(plt.style.available)
+
+# Output:
+['bmh', 'classic', 'dark_background', 'fast', 'fivethirtyeight', 'ggplot', 'grayscale', 'seaborn-bright', 'seaborn-colorblind', 'seaborn-dark-palette', 'seaborn-dark', 'seaborn-darkgrid', 'seaborn-deep', 'seaborn-muted', 'seaborn-notebook', 'seaborn-paper', 'seaborn-pastel', 'seaborn-poster', 'seaborn-talk', 'seaborn-ticks', 'seaborn-white', 'seaborn-whitegrid', 'seaborn', 'Solarize_Light2', 'tableau-colorblind10', '_classic_test']
+```
+
+### Turning on XKCD effect for rendering an image
+
+Turning on xkcd <https://xkcd.com/> _sketch-style drawing mode_.
+
+```python
+from matplotlib import pyplot as plt
+
+plt.xkcd()
+```
+
+![xkcd_plot]
+
 ## References
 
-- [Datasets](https://insights.stackoverflow.com/survey) from `nsights.stackoverflow.com`.
+- Datasets from [stackoverflow dataset](https://insights.stackoverflow.com/survey)
+- Tutorial videos [Corey Schafer YT channel]
 
 <!-- Links -->
 [xkcd_plot]: https://i.ibb.co/s2swsDy/plot.png "XKCD Plot"
 [plot-chart]: https://i.ibb.co/4WNks6Z/plot-chart.png "Plot chart"
 [bar-chart]: https://i.ibb.co/Fm4mKX5/bar-chart.png "Bar chart"
+[stackoverflow dataset]: https://insights.stackoverflow.com/survey "Stackoverflow dataset"
+[Corey Schafer YT channel]: https://www.youtube.com/watch?v=nKxLfUrkLE8 "Corey Schafer"
