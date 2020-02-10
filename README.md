@@ -5,6 +5,8 @@
 - [Dependecies](#dependecies)
 - [Plot chart](#plot-chart)
 - [Bar chart](#bar-chart)
+- [Horizontal bar chart](#horizontal-bar-chart)
+  - [Using csv package](#using-csv-package)
 - [Useful codes](#useful-codes)
   - [Printing available styles](#printing-available-styles)
   - [Turning on XKCD effect for rendering an image](#turning-on-xkcd-effect-for-rendering-an-image)
@@ -117,6 +119,49 @@ plt.show()
 
 ![bar-chart]
 
+## Horizontal bar chart
+
+### Using csv package
+
+```python
+import csv
+from collections import Counter
+from matplotlib import pyplot as plt
+
+
+with open("data/data.csv") as csv_file:
+    csv_reader = csv.DictReader(csv_file)
+
+    languages_counter = Counter()
+    for row in csv_reader:
+        languages_counter.update(row["LanguagesWorkedWith"].split(";"))
+
+languages, popularity = zip(*languages_counter.most_common(15))
+languages, popularity = list(languages), list(popularity)
+
+# Reversing values to get bigger values at top
+languages.reverse()
+popularity.reverse()
+
+# Select a style
+plt.style.use("fivethirtyeight")
+
+# Horizontal bar chart
+plt.barh(languages, popularity)
+
+plt.legend()
+
+plt.title("Most Popular Languages")
+plt.xlabel("Popularity")
+
+plt.tight_layout()
+
+plt.savefig("img/barh_chart.png")
+plt.show()
+```
+
+![Horizontal Bar Chart]
+
 ## Useful codes
 
 ### Printing available styles
@@ -153,3 +198,4 @@ plt.xkcd()
 [bar-chart]: https://i.ibb.co/Fm4mKX5/bar-chart.png "Bar chart"
 [stackoverflow dataset]: https://insights.stackoverflow.com/survey "Stackoverflow dataset"
 [Corey Schafer YT channel]: https://www.youtube.com/watch?v=nKxLfUrkLE8 "Corey Schafer"
+[Horizontal Bar Chart]: https://i.ibb.co/TqmL02B/barh-chart.png "Horizontal Bar Chart"
