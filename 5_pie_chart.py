@@ -32,4 +32,6 @@ plt.pie(
 
 plt.title("Pie chart")
 plt.tight_layout()
+
+plt.savefig("img/pie_chart.png")
 plt.show()
