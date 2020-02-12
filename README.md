@@ -9,6 +9,7 @@
   - [Using csv package](#using-csv-package)
   - [Using pandas package](#using-pandas-package)
 - [Pie chart](#pie-chart)
+- [Stack plots](#stack-plots)
 - [Useful codes](#useful-codes)
   - [Printing available styles](#printing-available-styles)
   - [Turning on XKCD effect for rendering an image](#turning-on-xkcd-effect-for-rendering-an-image)
@@ -20,6 +21,7 @@
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **matplotlib** | A plotting library for the Python programming language and its numerical mathematics extension NumPy. It provides an object-oriented API for embedding plots into applications using general-purpose GUI toolkits like Tkinter, wxPython, Qt, or GTK+. |
 | **NumPy**      | A library for the Python programming language, adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.                                         |
+| **pandas**     | pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.                                                                                                 |
 
 ## Plot chart
 
@@ -247,6 +249,33 @@ plt.show()
 
 ![Pie chart]
 
+## Stack plots
+
+```python
+from matplotlib import pyplot as plt
+
+
+plt.style.use("fivethirtyeight")
+
+days = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+labels = ["Developer 1", "Developer 2", "Developer 3"]
+
+developers = [[1, 2, 3, 3, 4, 4, 4, 4, 5], [1, 1, 1, 1, 2, 2, 2, 3, 4], [1, 1, 1, 2, 2, 2, 3, 3, 3]]
+
+plt.stackplot(days, *developers, labels=labels)
+
+plt.legend(loc="upper left")
+plt.title("Developers contributions")
+plt.xlabel("Days")
+plt.ylabel("Contributions")
+
+plt.tight_layout()
+plt.savefig("img/stack_plots.png")
+plt.show()
+```
+
+![Stack plots]
+
 ## Useful codes
 
 ### Printing available styles
@@ -285,3 +314,4 @@ plt.xkcd()
 [Corey Schafer YT channel]: https://www.youtube.com/watch?v=nKxLfUrkLE8 "Corey Schafer"
 [Horizontal Bar Chart]: https://i.ibb.co/TqmL02B/barh-chart.png "Horizontal Bar Chart"
 [Pie chart]: https://i.ibb.co/w7zywD2/pie-chart.png "Pie chart"
+[Stack plots]: https://i.ibb.co/52gGW7G/stack-plots.png "Stack plots"
