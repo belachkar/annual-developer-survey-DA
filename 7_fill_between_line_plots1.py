@@ -9,7 +9,6 @@ py_salaries = data["Python"]
 js_salaries = data["JavaScript"]
 
 median = pd.DataFrame.median(dev_salaries)
-# print(median)
 
 plt.plot(ages, py_salaries, label="Python")
 plt.plot(ages, dev_salaries, label="All Devs", linestyle="--")

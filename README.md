@@ -10,6 +10,9 @@
   - [Using pandas package](#using-pandas-package)
 - [Pie chart](#pie-chart)
 - [Stack plots](#stack-plots)
+- [Fill between line plots 1](#fill-between-line-plots-1)
+- [Fill between line plots 2](#fill-between-line-plots-2)
+- [Histogram](#histogram)
 - [Useful codes](#useful-codes)
   - [Printing available styles](#printing-available-styles)
   - [Turning on XKCD effect for rendering an image](#turning-on-xkcd-effect-for-rendering-an-image)
@@ -276,6 +279,120 @@ plt.show()
 
 ![Stack plots]
 
+## Fill between line plots 1
+
+```python
+import pandas as pd
+from matplotlib import pyplot as plt
+
+data = pd.read_csv("data/developers.csv")
+
+ages = data["Age"]
+dev_salaries = data["All_Devs"]
+py_salaries = data["Python"]
+js_salaries = data["JavaScript"]
+
+median = pd.DataFrame.median(dev_salaries)
+
+plt.plot(ages, py_salaries, label="Python")
+plt.plot(ages, dev_salaries, label="All Devs", linestyle="--")
+
+plt.fill_between(
+    ages, py_salaries, median, where=(py_salaries > median), interpolate=True, alpha=0.2
+)
+
+plt.fill_between(
+    ages, py_salaries, median, where=(py_salaries <= median), interpolate=True, alpha=0.2
+)
+
+plt.legend()
+plt.title("Median salary (USD) by Age")
+plt.xlabel("Ages")
+
+plt.tight_layout()
+plt.show()
+```
+
+![fill-between-line-plots1]
+
+## Fill between line plots 2
+
+```python
+import pandas as pd
+from matplotlib import pyplot as plt
+
+data = pd.read_csv("data/developers.csv")
+
+ages = data["Age"]
+dev_salaries = data["All_Devs"]
+py_salaries = data["Python"]
+js_salaries = data["JavaScript"]
+
+median = pd.DataFrame.median(dev_salaries)
+
+plt.plot(ages, py_salaries, label="Python")
+plt.plot(ages, dev_salaries, label="All Devs", linestyle="--")
+
+plt.fill_between(
+    ages,
+    py_salaries,
+    dev_salaries,
+    where=(py_salaries > dev_salaries),
+    interpolate=True,
+    alpha=0.2,
+    label="Above Avg",
+)
+
+plt.fill_between(
+    ages,
+    py_salaries,
+    dev_salaries,
+    where=(py_salaries <= dev_salaries),
+    interpolate=True,
+    alpha=0.2,
+    label="Below Avg",
+)
+
+plt.legend()
+plt.title("Median salary (USD) by Age")
+plt.xlabel("Ages")
+
+plt.tight_layout()
+plt.show()
+```
+
+![fill-between-line-plots2]
+
+## Histogram
+
+```python
+import pandas as pd
+from matplotlib import pyplot as plt
+
+data = pd.read_csv("data/ages.csv")
+
+ages = data["Age"]
+ids = data["Responder_id"]
+
+bins = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+plt.hist(ages, bins=bins, edgecolor="black")
+
+median_age = pd.DataFrame.median(ages)
+print(median_age)
+color = "#fc4f30"
+plt.axvline(median_age, color=color, label="Median Age")
+
+plt.legend()
+plt.title("Ages of Respondents")
+plt.xlabel("Ages")
+plt.ylabel("Total Respondents")
+
+plt.tight_layout()
+plt.show()
+```
+
+![histogram]
+
 ## Useful codes
 
 ### Printing available styles
@@ -315,3 +432,7 @@ plt.xkcd()
 [Horizontal Bar Chart]: https://i.ibb.co/TqmL02B/barh-chart.png "Horizontal Bar Chart"
 [Pie chart]: https://i.ibb.co/w7zywD2/pie-chart.png "Pie chart"
 [Stack plots]: https://i.ibb.co/52gGW7G/stack-plots.png "Stack plots"
+
+[fill-between-line-plots1]: https://i.ibb.co/w4kLpv3/fill-between-line-plots1.png "Fill between line plots"
+[fill-between-line-plots2]: https://i.ibb.co/2tvgJgD/fill-between-line-plots2.png "Fill between line plots"
+[histogram]: https://i.ibb.co/NYs7MkJ/histogram.png "Histogram"
